@@ -1,5 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+
+import Nominee from "@components/awards/Nominee";
+import ResultModal from "@components/awards/ResultModal";
 import styles from "@styles/Awards.module.css"
 
 const Awards: NextPage = () => {
@@ -12,9 +15,47 @@ const Awards: NextPage = () => {
       </Head>
 
       <main>
-        <h1>
-          Good Luck!
-        </h1>
+        <div className="container">
+            <div className="row">
+                <h1 className="text-center">AWARDS 2021</h1>
+            </div>
+
+            <div className="row">
+                <div className="col">
+                <h3 className={ styles.category }>
+                    Category 1
+                </h3>
+                </div>
+            </div>
+
+            <div className="row">
+                <div className="col-md-4">
+                    <Nominee />
+                </div>
+
+                <div className="col-md-4">
+                    <Nominee />
+                </div>
+
+                <div className="col-md-4">
+                    <Nominee />
+                </div>
+            </div>
+
+            <div className="row">
+                <div className="col-md-4">
+                    <Nominee />
+                </div>
+
+                <div className="col-md-4">
+                    <Nominee />
+                </div>
+
+                <div className="col-md-4">
+                    <Nominee />
+                </div>
+            </div>
+        </div>
       </main>
     </div>
     )

@@ -1,7 +1,4 @@
-:root {
-    --primary-color: #009B86;
-}
-
-.main {
-    color: #FFFFFF;
+.category {
+    background-color: var(--primary-color);
+    padding: 1rem 0.5rem;
 }

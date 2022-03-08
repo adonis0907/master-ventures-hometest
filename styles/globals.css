@@ -1,3 +1,7 @@
+:root {
+  --primary-color: #009B86;
+}
+
 html,
 body {
   padding: 0;
@@ -15,4 +19,51 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  display: block;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row {
+  display: flex;
+  margin: 1rem 0rem;
+}
+
+.row>* {
+  flex-shrink:0;
+  width:100%;
+  max-width:100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-top:.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+[class*="col"] {
+  display: flex;
+}
+
+.col {
+  flex:1 0 0%
+}
+.col-md-4 {
+  flex: 0 0 auto;
+  width:33.33333333%;
+}
+
+.justify-content-center {
+  justify-content: center !important;
 }
