@@ -23,7 +23,7 @@ const Nominee = (props: NomineeProps) => {
             </div>
             <div className="row">
                 <div className="col justify-content-center">
-                    <button className={ classNames({ btn: true }) } onClick={ props.onSelect(item.id) }>Select</button>
+                    <button aria-label='select-nominee' className={ classNames({ btn: true }) } onClick={ props.onSelect(item.id) }>Select</button>
                 </div>
             </div>
         </div>

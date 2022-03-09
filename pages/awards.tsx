@@ -96,7 +96,7 @@ const Awards: NextPage = () => {
                     </div>
 
                     {
-                        ballots.length && ballots.map((ballot: BallotInterface) =>
+                        ballots.length > 0 && ballots.map((ballot: BallotInterface) =>
                             <Fragment key={ ballot.id }>
                                 <div className="row">
                                     <div className="col">
@@ -120,7 +120,7 @@ const Awards: NextPage = () => {
                     }
                 </div>
 
-                <button className={ `btn ${styles['submit-ballot']}` } onClick={ onSubmitBallots }>Submit Ballot</button>
+                <button data-testid="submit-ballot" className={ `btn ${styles['submit-ballot']}` } onClick={ onSubmitBallots }>Submit Ballot</button>
                 <ResultModal open={ openResults } onClose={ () => setOpenResults(false) } />
             </MainTag>
         </>
