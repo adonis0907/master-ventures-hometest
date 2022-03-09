@@ -109,7 +109,7 @@ const Awards: NextPage = () => {
                                 <div className="row">
                                     {
                                         ballot.items.length && ballot.items.map((item: BallotItemInterface) =>
-                                            <div className="col-md-4" key={ item.id }>
+                                            <div className="col-lg-4 col-sm-6 col-12" key={ item.id }>
                                                 <Nominee item={ item } onSelect={ onSelectItem(ballot.id) } />
                                             </div>
                                         )
