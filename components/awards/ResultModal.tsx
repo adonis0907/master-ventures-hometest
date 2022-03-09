@@ -39,6 +39,8 @@ const ResultModal: FC<any> = (props: ResultModalProps) => {
         props.onClose();
     }
 
+    console.log(awardedBallots);
+
     return (
     isOpen &&
         <div className={ styles['modal-page'] } onClick={onDrop}>

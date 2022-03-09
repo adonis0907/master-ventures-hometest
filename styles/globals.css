@@ -6,12 +6,15 @@
   --hover-text-color: #CCCCCC;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Roboto;
   background-color: var(--page-bg-color);
   color: var(--primary-text-color);
 }
@@ -21,13 +24,17 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 h1, h2, h3, h4, h5, h6, p {
   display: block;
   width: 100%;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
 }
 
 .container {
@@ -36,6 +43,10 @@ h1, h2, h3, h4, h5, h6, p {
   padding-right: 5rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+.mt-5 {
+  margin-top: 5rem;
 }
 
 .row {
@@ -74,7 +85,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .btn {
-  border: 0;
+  border: 0px solid var(--page-bg-color);
   background-color: var(--primary-bg-color);
   cursor: pointer;
   font-size: 1rem;
@@ -84,6 +95,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .btn:hover {
   background-color: var(--hover-bg-color);
+  color: var(--hover-text-color);
 }
 
 button {

@@ -4,9 +4,11 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import styled from 'styled-components'
 
-import { submitAwards } from "@store/slices/award.slice"
+import AwardHeader from "@components/awards/AwardHeader"
 import Nominee from "@components/awards/Nominee"
+import NomineeCategory from "@components/awards/NomineeCategory"
 import ResultModal from "@components/awards/ResultModal"
+import { submitAwards } from "@store/slices/award.slice"
 import styles from "@styles/Awards.module.css"
 
 interface BallotsInterface {
@@ -56,10 +58,13 @@ const Awards: NextPage = () => {
         })();
     }, []);
 
-    const onSelectItem = (ballotId: string) => (itemId: string) => () => {
+    const onSelectItem = (ballotId: string) => (itemId: string, state: boolean) => () => {
         const newBallots = ballots.map((ballot: BallotInterface) => {
-            if (ballot.id == ballotId)
-                ballot.selected = itemId;
+            if (ballot.id == ballotId) {
+                if (state)
+                    ballot.selected = itemId;
+                else ballot.selected = null;
+            }
 
             return ballot;
         });
@@ -90,27 +95,23 @@ const Awards: NextPage = () => {
             </Head>
 
             <MainTag>
-                <div className="container">
-                    <div className="row">
-                        <h1 className="text-center">AWARDS 2021</h1>
-                    </div>
+                <div className="container mt-5">
+                    <AwardHeader title='Awards 2021' />
 
                     {
                         ballots.length > 0 && ballots.map((ballot: BallotInterface) =>
                             <Fragment key={ ballot.id }>
                                 <div className="row">
                                     <div className="col">
-                                        <h3 className={ styles.category }>
-                                            { ballot.title}
-                                        </h3>
+                                        <NomineeCategory title={ ballot.title } />
                                     </div>
                                 </div>
-
+                                
                                 <div className="row">
                                     {
                                         ballot.items.length && ballot.items.map((item: BallotItemInterface) =>
                                             <div className="col-lg-4 col-sm-6 col-12" key={ item.id }>
-                                                <Nominee item={ item } onSelect={ onSelectItem(ballot.id) } />
+                                                <Nominee item={ item } active={ ballot.selected == item.id } onSelect={ onSelectItem(ballot.id) } />
                                             </div>
                                         )
                                     }
