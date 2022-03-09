@@ -1,5 +1,9 @@
 :root {
-  --primary-color: #009B86;
+  --page-bg-color: #0D2436;
+  --primary-bg-color: #009B86;
+  --hover-bg-color: #34AC9C;
+  --primary-text-color: #FFFFFF;
+  --hover-text-color: #CCCCCC;
 }
 
 html,
@@ -8,8 +12,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #0D2436;
-  color: #FFFFFF;
+  background-color: var(--page-bg-color);
+  color: var(--primary-text-color);
 }
 
 a {
@@ -36,7 +40,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .row {
   display: flex;
-  margin: 1rem 0rem;
+  flex-wrap: wrap;
 }
 
 .row>* {
@@ -45,11 +49,16 @@ h1, h2, h3, h4, h5, h6, p {
   max-width:100%;
   padding-right: 1rem;
   padding-left: 1rem;
-  margin-top:.5rem;
+  margin-top:1rem;
+  margin-bottom: 1rem;
 }
 
 .text-center {
   text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
 }
 
 [class*="col"] {
@@ -66,4 +75,21 @@ h1, h2, h3, h4, h5, h6, p {
 
 .justify-content-center {
   justify-content: center !important;
+}
+
+.btn {
+  border: 0;
+  background-color: var(--primary-bg-color);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  color: var(--primary-text-color);
+}
+
+.btn:hover {
+  background-color: var(--hover-bg-color);
+}
+
+button {
+  cursor: pointer;
 }

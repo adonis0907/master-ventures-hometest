@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  reactStrictMode: true,
+  experimental: {
+    styledComponents: true,
+  },
+  reactStrictMode: true,  
   async redirects() {
     return [
       {

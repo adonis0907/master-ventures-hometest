@@ -1,7 +1,7 @@
 .nominee {
     width: 100%;
     height: 100%;
-    background-color: var(--primary-color);
+    background-color: var(--primary-bg-color);
 }
 
 .nominee-img {
@@ -12,13 +12,13 @@
 
 .nominee-select {
     border: 0;
-    background-color: var(--primary-color);
+    background-color: var(--primary-bg-color);
     cursor: pointer;
     font-size: 1rem;
     padding: .5rem 1rem;
-    color: #FFFFFF;
+    color: var(--primary-text-color);
 }
 
 .nominee:hover, .nominee-select:hover {
-    background-color: #34AC9C;
+    background-color: var(--hover-bg-color);
 }

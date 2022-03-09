@@ -1,4 +1,11 @@
 .category {
-    background-color: var(--primary-color);
-    padding: 1rem 0.5rem;
+    background-color: var(--primary-bg-color);
+    padding: 1rem 2rem;
+}
+
+.submit-ballot {
+    text-transform: uppercase;
+    position: fixed;
+    right: 2rem;
+    bottom: 1rem;
 }
