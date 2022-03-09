@@ -1,4 +1,4 @@
-import { FC, SyntheticEvent } from 'react'
+import { FC, SyntheticEvent, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
@@ -7,7 +7,7 @@ import { AwardedBallotInterface } from "@pages/awards"
 import styles from '@styles/awards/ResultModal.module.css'
 
 interface ResultModalProps {
-    open: Boolean,
+    open: Boolean,  
     onClose: Function
 }
 
@@ -19,6 +19,7 @@ const Modal = styled.div`
     height: 500px;
     border-radius: 4px;
     border: 1px solid #222;
+    transition: opacity .25s;
 `;
 
 const ModalHeader = styled.div`
@@ -31,6 +32,7 @@ const ModalBody = styled.div`
 `;
 
 const ResultModal: FC<any> = (props: ResultModalProps) => {
+    const modalPageRef = useRef<HTMLDivElement>(null);
     const isOpen = props.open;
     const awardedBallots = useSelector((state: RootState) => state.award.items);
 
@@ -39,14 +41,23 @@ const ResultModal: FC<any> = (props: ResultModalProps) => {
         props.onClose();
     }
 
-    console.log(awardedBallots);
+    useEffect(() => {
+        if (props.open) {
+            if (modalPageRef && modalPageRef.current)
+                modalPageRef.current.style.backgroundColor = '#333A';
+        } else {
+            if (modalPageRef && modalPageRef.current)
+                modalPageRef.current.style.backgroundColor = '#3330';
+        }
+
+    }, [props.open]);
 
     return (
     isOpen &&
-        <div className={ styles['modal-page'] } onClick={onDrop}>
+        <div className={ styles['modal-page'] } onClick={onDrop} ref={ modalPageRef }>
             <Modal onClick={(e: SyntheticEvent) => e.stopPropagation()}>
                 <ModalHeader>
-                    <button className={ `${styles['close']}` } onClick={onDrop}>X</button>
+                    <button className={ `${styles['close']}` } onClick={onDrop}>&times;</button>
                 </ModalHeader>
                 <ModalBody>
                     <div className="container">
