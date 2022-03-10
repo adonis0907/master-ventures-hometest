@@ -23,7 +23,7 @@ describe('Awards', () => {
     expect(heading).toBeInTheDocument()
   })
 
-  it('outputs no result', () => {
+  it('outputs no result with no ballots', () => {
     render(
       <Provider store={store}>
         <AwardsPage />
@@ -36,7 +36,7 @@ describe('Awards', () => {
     expect(noResultHeading).toBeInTheDocument();
   })
 
-  it('outputs success result', () => {
+  it('outputs success result after getting ballots from api', () => {
     render(
       <Provider store={store}>
         <AwardsPage />
